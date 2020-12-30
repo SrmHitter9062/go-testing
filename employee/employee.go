@@ -1,30 +1,31 @@
 package employee
 
 import (
-	"../publisher"
 	"encoding/json"
 	"fmt"
+
+	"github.com/SrmHitter9062/go-testing/publisher"
 )
 
 type Emp struct {
-	ID int
+	ID       int
 	EDetails EDetails
 	// embedding dependent interface
 	Publisher publisher.PublishInterface
 }
 
 type EDetails struct {
-	ID int
-	Name string
+	ID      int
+	Name    string
 	Address string
-	Salary SDetails
+	Salary  SDetails
 }
 
 type SDetails struct {
-	Sent bool
-	Month string
+	Sent   bool
+	Month  string
 	Amount int
-	Bank string
+	Bank   string
 }
 
 func (e *Emp) GetEmployee(ID int) EDetails {
